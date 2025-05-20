@@ -111,23 +111,6 @@
                 height: 70px;
             }
         }
-      /* Tambahan style untuk pesan rahasia */
-      .hidden-message {
-            display: none;
-            font-size: 1.2em;
-            color: #2d3436;
-            padding: 15px;
-            margin-top: 20px;
-            background: #fff3e6;
-            border-radius: 10px;
-            border-left: 5px solid #ff6b6b;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
     </style>
 </head>
 <body>
@@ -138,29 +121,18 @@
             <div class="balloon"></div>
         </div>
         
-        <h1>🎉 Selamat Ulang Tahun Sayangku Cintaku Manisku wes pokoknya Punyaku! 🎂</h1>
+        <h1>🎉 Selamat Ulang Tahun Ibukku! 🎂</h1>
         
         <div class="message">
             <p>Semoga di hari spesial ini,<br>
-                semoga semua harapan dan mimpi-mimpinya Rara<br>
-                Segera terkabul dan menjadi kenyataan!<br>
-                Maaf yaa kalo dhika ngga bisa ngasih apa-apa<br>
-                cuma bisa buat ini sih, ini juga belajar hehe<br>
-            Panjang umur & selalu bahagia! 🎈</p>
+            Semua harapan e ibuk, mimpi-mimpi e ibuk<br>
+            Bisa terkabul dan menjadi kenyataan!<br>
+            Panjang umur Ibukku & sehat selalu !<br>
+            Tuhan Yesus Memberkati </p>
         </div>
 
-        <!-- Tombol gabungan untuk musik dan pesan -->
-        <button class="button" id="actionButton">Coba Pencet</button>
+        <button class="button" onclick="playMusic()">Putar Musik</button>
         
-        <!-- Pesan tambahan -->
-        <div id="secretMessage" class="hidden-message">
-            Terima kasih ya udah bertahan selama ini<br>
-            Terima kasih telah menjadi pribadi yang luar biasa<br>
-            terima kasih juga udah sabar sama sikapnya dhika<br>
-            jangan kemana" yaaa:(<br>
-            Semoga tahun ini membawa banyak kebahagiaan baru! 🌟
-        </div>
-
         <div class="balloons">
             <div class="balloon"></div>
             <div class="balloon"></div>
@@ -169,30 +141,13 @@
     </div>
 
     <script>
-        let isPlaying = false;
-        const audio = new Audio('https://www.soundjay.com/holiday/sounds/happy-birthday-song-01.mp3');
-        
-        function toggleAction() {
-            const message = document.getElementById('secretMessage');
-            const button = document.getElementById('actionButton');
-
-            // Putar/matikan musik
-            if(!isPlaying) {
-                audio.play();
-                message.style.display = 'block';
-                button.textContent = "⏸️ Pause Musik & Sembunyikan Pesan";
-                isPlaying = true;
-            } else {
-                audio.pause();
-                message.style.display = 'none';
-                button.textContent = "▶️ Putar Musik & Tampilkan Pesan";
-                isPlaying = false;
-            }
+        function playMusic() {
+            const audio = new Audio('https://www.soundjay.com/holiday/sounds/happy-birthday-song-01.mp3');
+            audio.play();
         }
 
-        // Inisialisasi event listener
+        // Tambahan animasi confetti
         document.addEventListener('DOMContentLoaded', function() {
-            // Animasi confetti
             const colors = ['#ff7675', '#74b9ff', '#55efc4', '#ffeaa7'];
             
             function createConfetti() {
@@ -212,12 +167,8 @@
                 }
             }
 
-            // Hubungkan tombol dengan semua fungsi
-            const actionButton = document.getElementById('actionButton');
-            actionButton.addEventListener('click', function() {
-                toggleAction();
-                createConfetti();
-            });
+            // Tambahkan event listener ke button
+            document.querySelector('.button').addEventListener('click', createConfetti);
         });
     </script>
 </body>
