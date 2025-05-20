@@ -1,1 +1,1 @@
-ngecek versi dua.html
+ngecek index.html
